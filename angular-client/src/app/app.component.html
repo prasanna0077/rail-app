@@ -1,0 +1,44 @@
+
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-light bg-faded">
+  <div class="container">
+    <a class="navbar-brand" href="#">Indian Railways...Welcomes You....!!!</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div [style.margin-top.px]="10" class="row">
+    <br>
+    <h3>Add a New Train</h3>
+    <br>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="trainname">Train Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" class="form-control" id="trainname" #trainname> &nbsp;&nbsp;
+      </div>
+      <div class="form-group">
+        <label for="trainno">Train No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="number" class="form-control" id="trainno" #trainno>&nbsp;&nbsp;
+      </div>
+      <br><br>
+      <div class="form-group">
+        <label for="trainorigin">Train Origin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" class="form-control" id="trainorigin" #trainorigin>&nbsp;&nbsp;
+      </div>
+      <div class="form-group">
+        <label for="traindest">Train Destination:&nbsp;&nbsp;</label>
+        <input type="text" class="form-control" id="traindest" #traindest>&nbsp;&nbsp;
+      </div>
+      <br><br>            
+      <button type="button" (click)="addTrain(trainname.value, trainno.value,trainorigin.value,traindest.value)" class="btn btn-primary">Add Train</button>
+    </form>
+  </div>
+  <div [style.margin-top.px]="10" class="row">
+    <br>
+    <h3>Trains</h3>
+    <!-- Bootstrap Card -->
+    <div [style.margin-right.px]="10" style="background-color:DodgerBlue" class="card card-block col-md-3" *ngFor="let train of trains">
+      <h4 class="card-title"><b>{{train.trainname}}</b><br>{{train.trainno}}<br>{{train.trainorigin}}<br>{{train.traindest}}</h4>
+    </div>
+  </div>
+</div>
